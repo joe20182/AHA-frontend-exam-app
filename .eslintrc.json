@@ -23,6 +23,7 @@
   ],
   "rules": {
     // no need to import react after v17
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "indent": ["error", 2]
   }
 }

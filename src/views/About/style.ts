@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { rwd } from '@/style/rwd'
+import styled from 'styled-components';
+import {rwd} from '@/style/rwd';
 
 export const AddBtn = styled.button`
   background-color: #333;
@@ -11,4 +11,4 @@ export const AddBtn = styled.button`
     background-color: #777;
     color: #ff4c4c;
   `)}
-`
+`;

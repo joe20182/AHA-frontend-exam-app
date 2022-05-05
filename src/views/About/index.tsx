@@ -1,19 +1,19 @@
-import { FC } from 'react'
-import { renderRoutes, RouteConfig } from 'react-router-config'
-import { RouteComponentProps } from 'react-router-dom'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
-import { selectCount, incrementByAmount } from '@/store/slice/count'
-import { AddBtn } from './style'
+import {FC} from 'react';
+import {renderRoutes, RouteConfig} from 'react-router-config';
+import {RouteComponentProps} from 'react-router-dom';
+import {useAppDispatch, useAppSelector} from '@/store/hooks';
+import {selectCount, incrementByAmount} from '@/store/slice/count';
+import {AddBtn} from './style';
 
 interface RouterComponent extends RouteComponentProps {
   route?: RouteConfig
 }
 
-const About: FC<RouterComponent> = ({ route }) => {
-  const count = useAppSelector(selectCount)
-  const dispatch = useAppDispatch()
+const About: FC<RouterComponent> = ({route}) => {
+  const count = useAppSelector(selectCount);
+  const dispatch = useAppDispatch();
 
-  const add = () => dispatch(incrementByAmount(2))
+  const add = () => dispatch(incrementByAmount(2));
 
   return (
     <div className="About-wrapper">
@@ -22,7 +22,7 @@ const About: FC<RouterComponent> = ({ route }) => {
       <AddBtn onClick={add}>ADD</AddBtn>
       <div className="nested-routes">{renderRoutes(route?.routes)}</div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

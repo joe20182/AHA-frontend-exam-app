@@ -1,8 +1,12 @@
-import { Suspense } from 'react'
-import { Link } from 'react-router-dom'
-import { renderRoutes } from 'react-router-config'
-import routes from '@/router'
+import {Suspense} from 'react';
+import {Link} from 'react-router-dom';
+import {renderRoutes} from 'react-router-config';
+import routes from '@/router';
 
+/**
+ * App component
+ * @return {React.ReactElement} The app
+ */
 function App() {
   return (
     <div className="App">
@@ -17,7 +21,7 @@ function App() {
         </Suspense>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

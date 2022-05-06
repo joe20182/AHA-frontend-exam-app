@@ -12,7 +12,7 @@ const theme = createTheme({
       default: '#181818',
     },
     // primary: {
-    //   main: '#ff4c4c',
+    //   main: '#FF9B33',
     // },
     // secondary: {
     //   main: '#19857b',

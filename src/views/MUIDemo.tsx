@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@/ui/Button';
 import Input from '@/ui/Input';
+import PageSlider from '@/components/PageSlider';
 
 const MUIDemo: FC<RouteComponentProps> = () => {
   return (
@@ -26,6 +27,9 @@ const MUIDemo: FC<RouteComponentProps> = () => {
         <Button variant="contained" size="large">
           contained button
         </Button>
+      </Box>
+      <Box>
+        <PageSlider />
       </Box>
     </Container>
   );

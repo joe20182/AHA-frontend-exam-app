@@ -2,13 +2,21 @@ import {createTheme} from '@mui/material/styles';
 
 // Create a theme instance.
 const theme = createTheme({
+  typography: {
+    fontFamily: ['Ubuntu', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'].join(
+      ',',
+    ),
+  },
   palette: {
-    primary: {
-      main: '#ff4c4c',
+    background: {
+      default: '#181818',
     },
-    secondary: {
-      main: '#19857b',
-    },
+    // primary: {
+    //   main: '#ff4c4c',
+    // },
+    // secondary: {
+    //   main: '#19857b',
+    // },
   },
 });
 

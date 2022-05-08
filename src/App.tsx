@@ -1,6 +1,7 @@
 import {Suspense} from 'react';
 import {renderRoutes} from 'react-router-config';
 import routes from '@/router';
+import Layout from '@/layout';
 
 /**
  * App component
@@ -8,13 +9,13 @@ import routes from '@/router';
  */
 function App() {
   return (
-    <div className="App">
-      <div className="page-wrapper">
-        <Suspense fallback={<div>Loading</div>}>
-          {renderRoutes(routes)}
-        </Suspense>
-      </div>
-    </div>
+    <Layout>
+      {/* <div className="App">
+      <div className="page-wrapper"> */}
+      <Suspense fallback={<div>Loading</div>}>{renderRoutes(routes)}</Suspense>
+      {/* </div>
+    </div> */}
+    </Layout>
   );
 }
 

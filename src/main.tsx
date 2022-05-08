@@ -11,9 +11,9 @@ import theme from '@/style/theme';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Provider store={store}>
         <BrowserRouter>
-          <CssBaseline />
           <App />
         </BrowserRouter>
       </Provider>

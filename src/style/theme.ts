@@ -20,6 +20,9 @@ const theme = createTheme({
     background: {
       default: '#181818',
     },
+    text: {
+      primary: '#FFF',
+    },
     primary: {
       main: '#FF9B33',
     },

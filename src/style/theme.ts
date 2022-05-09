@@ -2,6 +2,15 @@ import {createTheme} from '@mui/material/styles';
 
 // Create a theme instance.
 const theme = createTheme({
+  // components: {
+  //   MuiCssBaseline: {
+  //     styleOverrides: {
+  //       body: {
+  //         overflowX: 'hidden',
+  //       },
+  //     },
+  //   },
+  // },
   breakpoints: {
     values: {
       xs: 0,

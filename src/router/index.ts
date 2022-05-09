@@ -5,6 +5,11 @@ const routesConfig: RouteConfig[] = [
   {
     path: '/',
     exact: true,
+    component: lazy(() => import('@/views/Home')),
+  },
+  {
+    path: '/UIDemo',
+    exact: true,
     component: lazy(() => import('@/views/MUIDemo')),
   },
   // {

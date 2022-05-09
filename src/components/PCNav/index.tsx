@@ -1,13 +1,16 @@
 import {FC} from 'react';
 import Logo from '@/components/Logo';
-import {PCNavWrapper} from './style';
+import {PCNavWrapper, Tabs} from './style';
+import Tab from '@/components/Tab';
 
 const MobileHeader: FC = () => {
   return (
     <PCNavWrapper>
       <Logo />
-      <div>Tab1</div>
-      <div>Tab2</div>
+      <Tabs>
+        <Tab active={true} name="Home" />
+        <Tab active={false} name="Tags" />
+      </Tabs>
     </PCNavWrapper>
   );
 };

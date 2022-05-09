@@ -13,10 +13,24 @@ import {
 import Input from '@/ui/Input';
 import Button from '@/ui/Button';
 import PageSlider from '@/components/PageSlider';
+import useAxios from '@/hooks/useAxios';
 
 const Home: FC<RouteComponentProps> = () => {
   const theme = useTheme();
   const isPC = useMediaQuery(theme.breakpoints.up('sm'));
+  const {sendRequest: getAllUsers, isLoading} = useAxios({
+    url: '/users/all',
+    params: {
+      page: 1,
+      pageSize: 10,
+      keyword: 'a',
+    },
+  });
+
+  const handleSearch = async () => {
+    const res = await getAllUsers();
+    console.log(res);
+  };
 
   return (
     <HomeWrapper className={isPC ? 'isPC' : ''}>
@@ -36,7 +50,13 @@ const Home: FC<RouteComponentProps> = () => {
       </PagiWrapper>
       {/* btn */}
       <BtnWrapper className="btn-wrapper">
-        <Button size="large">SEARCH</Button>
+        <Button
+          size="large"
+          onClick={() => handleSearch()}
+          disabled={isLoading}
+        >
+          SEARCH
+        </Button>
       </BtnWrapper>
     </HomeWrapper>
   );

@@ -4,6 +4,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import MobileHeader from '@/components/MobileHeader';
 import MobileNav from '@/components/MobileNav';
 import PCNav from '@/components/PCNav';
+import Follow from '@/components/Follow';
 import {LayoutWrapper, ContentWrapper} from './style';
 
 const Layout: FC = ({children}) => {
@@ -17,7 +18,7 @@ const Layout: FC = ({children}) => {
       {isPC && <PCNav />}
       <ContentWrapper className={isPC ? 'isPC' : ''}>{children}</ContentWrapper>
       {isPC || <MobileNav />}
-      {showFollowers && <div className="pc-followers">PC FOLLOWERS</div>}
+      {showFollowers && <Follow />}
     </LayoutWrapper>
   );
 };

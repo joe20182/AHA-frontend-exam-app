@@ -12,6 +12,7 @@ export const LayoutWrapper = styled.div<LayoutProps>`
 
 export const ContentWrapper = styled.div`
   padding-top: 70px;
+  flex: 1;
   &.isPC {
     padding-top: 0;
   }

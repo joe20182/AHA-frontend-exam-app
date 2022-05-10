@@ -1,4 +1,4 @@
-import {FC} from 'react';
+import {FC, MouseEvent} from 'react';
 import {useTheme} from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {TabWrapper, TabName} from './style';
@@ -6,14 +6,15 @@ import {TabWrapper, TabName} from './style';
 interface TabProps {
   active?: boolean;
   name: string;
+  onClick?: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
-const Tab: FC<TabProps> = ({active, name}) => {
+const Tab: FC<TabProps> = ({active, name, ...props}) => {
   const theme = useTheme();
   const isPC = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
-    <TabWrapper>
+    <TabWrapper {...props}>
       <svg
         width="20"
         height="21"

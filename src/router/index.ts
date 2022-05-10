@@ -9,12 +9,14 @@ const routesConfig: RouteConfig[] = [
   },
   {
     path: '/result',
-    // exact: true,
     component: lazy(() => import('@/views/Result')),
   },
   {
+    path: '/tags',
+    component: lazy(() => import('@/views/Tags')),
+  },
+  {
     path: '/UIDemo',
-    // exact: true,
     component: lazy(() => import('@/views/MUIDemo')),
   },
   // {

@@ -1,4 +1,5 @@
 import {FC} from 'react';
+import {useLocation} from 'react-router-dom';
 import {useTheme} from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import MobileHeader from '@/components/MobileHeader';
@@ -8,9 +9,11 @@ import Follow from '@/components/Follow';
 import {LayoutWrapper, ContentWrapper} from './style';
 
 const Layout: FC = ({children}) => {
+  const location = useLocation();
   const theme = useTheme();
   const isPC = useMediaQuery(theme.breakpoints.up('sm'));
-  const showFollowers = useMediaQuery(theme.breakpoints.up('lg'));
+  const showFollowers =
+    useMediaQuery(theme.breakpoints.up('lg')) && location.pathname !== '/tags';
 
   return (
     <LayoutWrapper>

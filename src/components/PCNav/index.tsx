@@ -17,7 +17,7 @@ const MobileHeader: FC = () => {
       <Logo />
       <Tabs>
         <Tab
-          active={location.pathname === '/'}
+          active={location.pathname === '/' || location.pathname === '/result'}
           name="Home"
           onClick={() => handleDirect('/')}
         />

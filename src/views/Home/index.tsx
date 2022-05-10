@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import {RouteComponentProps} from 'react-router-dom';
+import {RouteComponentProps, useHistory} from 'react-router-dom';
 import {
   HomeWrapper,
   SearchWrapper,
@@ -11,21 +11,23 @@ import {
 import Input from '@/ui/Input';
 import Button from '@/ui/Button';
 import PageSlider from '@/components/PageSlider';
-import useAxios from '@/hooks/useAxios';
+// import useAxios from '@/hooks/useAxios';
 
 const Home: FC<RouteComponentProps> = () => {
-  const {sendRequest: getAllUsers, isLoading} = useAxios({
-    url: '/users/all',
-    params: {
-      page: 1,
-      pageSize: 10,
-      keyword: 'a',
-    },
-  });
+  const history = useHistory();
+  // const {sendRequest: getAllUsers, isLoading} = useAxios({
+  //   url: '/users/all',
+  //   params: {
+  //     page: 1,
+  //     pageSize: 10,
+  //     keyword: 'a',
+  //   },
+  // });
 
   const handleSearch = async () => {
-    const res = await getAllUsers();
-    console.log(res);
+    // const res = await getAllUsers();
+    // console.log(res);
+    history.push('/result?page=1');
   };
 
   return (
@@ -46,12 +48,7 @@ const Home: FC<RouteComponentProps> = () => {
       </PagiWrapper>
       {/* btn */}
       <BtnWrapper>
-        <Button
-          size="large"
-          onClick={() => handleSearch()}
-          disabled={isLoading}
-          fullWidth
-        >
+        <Button size="large" onClick={() => handleSearch()} fullWidth>
           SEARCH
         </Button>
       </BtnWrapper>

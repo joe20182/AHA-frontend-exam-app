@@ -15,7 +15,7 @@ const MobileNav: FC = () => {
     <MobileNavWrapper>
       <Tab
         name="Home"
-        active={location.pathname === '/'}
+        active={location.pathname === '/' || location.pathname === '/result'}
         onClick={() => handleDirect('/')}
       />
       <Tab

@@ -19,7 +19,7 @@ const Layout: FC = ({children}) => {
     <LayoutWrapper>
       {isPC || <MobileHeader />}
       {isPC && <PCNav />}
-      <ContentWrapper>{children}</ContentWrapper>
+      <ContentWrapper showFollowers={showFollowers}>{children}</ContentWrapper>
       {isPC || (location.pathname === '/' && <MobileNav />)}
       {showFollowers && <Follow />}
     </LayoutWrapper>

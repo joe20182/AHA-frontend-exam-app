@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface ContentWrapperProps {
+  showFollowers?: boolean;
+}
+
 export const LayoutWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -12,10 +16,11 @@ export const LayoutWrapper = styled.div`
   }
 `;
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<ContentWrapperProps>`
   padding: 70px 20px 0;
   flex: 1;
   ${({theme}) => theme.breakpoints.up('sm')} {
-    padding: 0 130px;
+    /* padding: 0 130px; */
+    padding: ${({showFollowers}) => `0 ${showFollowers ? 505 : 130}px 0 130px`};
   }
 `;

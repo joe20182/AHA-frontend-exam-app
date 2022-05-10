@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const FollowWrapper = styled.div`
   width: 375px;
   background-color: #1b1b1b;
+  position: fixed;
+  top: 0;
+  right: 0;
 `;
 
 export const FollowTabs = styled.div`

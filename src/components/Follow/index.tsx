@@ -1,9 +1,29 @@
-import {FC, useState} from 'react';
+import {FC, useState, useEffect} from 'react';
 import {FollowWrapper, FollowTabs, FollowTab, ListWrapper} from './style';
 import Follower from './Follower';
+import useAxios from '@/hooks/useAxios';
 
 const Follow: FC = () => {
   const [tab, setTab] = useState(1);
+  const [userList, setUserList] = useState([]);
+  const {sendRequest: getAllUsers, isLoading} = useAxios({
+    url: '/users/all',
+    params: {
+      page: 1,
+      pageSize: 20,
+    },
+  });
+  // '/users/friends'
+
+  useEffect(() => {
+    handleGetAllUsers();
+  }, []);
+
+  const handleGetAllUsers = async () => {
+    const res = await getAllUsers();
+    console.log(res);
+    setUserList(res.data);
+  };
 
   const handleClick = (index: number) => {
     setTab(index);
@@ -136,7 +156,7 @@ const Follow: FC = () => {
       </FollowTabs>
       {/* list */}
       <ListWrapper>
-        {list.map((member) => (
+        {userList.map((member) => (
           <Follower
             key={member.id}
             name={member.name}

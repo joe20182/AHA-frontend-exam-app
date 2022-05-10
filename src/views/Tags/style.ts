@@ -53,6 +53,9 @@ export const TagLabel = styled.span`
   left: 10px;
   bottom: 14px;
   padding: 7px 14px;
+  max-width: 135px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const TagName = styled.div`

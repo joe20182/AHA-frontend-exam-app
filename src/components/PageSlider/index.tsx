@@ -1,4 +1,5 @@
 import {FC} from 'react';
+import {SliderProps} from '@mui/material/Slider';
 import Slider from '@/ui/Slider';
 
 const marks = [
@@ -39,9 +40,17 @@ const calculateValue = (value: number) => {
   return current.scaledValue;
 };
 
-const PageSlider: FC = () => {
+const PageSlider: FC<SliderProps> = (props) => {
+  // console.log(props);
   return (
-    <Slider marks={marks} min={1} max={6} step={null} scale={calculateValue} />
+    <Slider
+      marks={marks}
+      min={1}
+      max={6}
+      step={null}
+      scale={calculateValue}
+      {...props}
+    />
   );
 };
 

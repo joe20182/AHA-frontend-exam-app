@@ -4,10 +4,8 @@ Build a SPA according to this [document](https://docs.google.com/document/d/1OfU
 
 stacks:
 
-- vite
 - react
 - typescript
-- react-router
 - react-redux
-- eslint
-- prettier
+- Material UI
+- styled components

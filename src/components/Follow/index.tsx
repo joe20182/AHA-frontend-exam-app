@@ -3,14 +3,24 @@ import {FollowWrapper, FollowTabs, FollowTab, ListWrapper} from './style';
 import Follower from './Follower';
 import useAxios from '@/hooks/useAxios';
 
+interface User {
+  avatar: string;
+  id: string;
+  isFollowing: boolean;
+  name: string;
+  username: string;
+}
+
+type UserList = User[];
+
 const Follow: FC = () => {
   const [tab, setTab] = useState(1);
-  const [userList, setUserList] = useState([]);
-  const {sendRequest: getAllUsers, isLoading} = useAxios({
+  const [userList, setUserList] = useState<UserList>([]);
+  const {sendRequest: getAllUsers} = useAxios({
     url: '/users/all',
     params: {
       page: 1,
-      pageSize: 20,
+      pageSize: 10,
     },
   });
   // '/users/friends'

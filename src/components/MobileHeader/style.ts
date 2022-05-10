@@ -12,3 +12,11 @@ export const MobileHeaderWrapper = styled.div`
   z-index: 1;
   background-color: #181818;
 `;
+
+export const HeaderGuard = styled.div`
+  font-size: 24px;
+`;
+
+export const BackIcon = styled.img`
+  margin-right: 19px;
+`;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import backImg from '@/assets/img/back.png';
 
 export const ResultWrapper = styled.div`
   padding-top: 20px;
@@ -16,13 +15,16 @@ export const ResultsTitle = styled.h3`
   position: relative;
   ${({theme}) => theme.breakpoints.up('sm')} {
     font-size: 30px;
-    padding-left: 8px;
-    &:before {
-      content: url(${backImg});
-      position: absolute;
-      left: -25px;
-      cursor: pointer;
-    }
+  }
+`;
+
+export const ResultBackIcon = styled.img`
+  margin-right: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  display: none;
+  ${({theme}) => theme.breakpoints.up('sm')} {
+    display: inline-block;
   }
 `;
 

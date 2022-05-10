@@ -4,6 +4,7 @@ import {RouteComponentProps} from 'react-router-dom';
 // import {selectCount, incrementByAmount} from '@/store/slice/count';
 import {ResultWrapper, ResultsTitle, ResultList} from './style';
 import ResultCard from './ResultCard';
+import Button from '@/ui/Button';
 
 const About: FC<RouteComponentProps> = () => {
   // const count = useAppSelector(selectCount);
@@ -17,7 +18,14 @@ const About: FC<RouteComponentProps> = () => {
         <ResultCard />
         <ResultCard />
         <ResultCard />
+        <ResultCard />
+        <ResultCard />
+        <ResultCard />
+        <ResultCard />
       </ResultList>
+      <Button size="large" fullWidth>
+        MORE
+      </Button>
     </ResultWrapper>
   );
 };

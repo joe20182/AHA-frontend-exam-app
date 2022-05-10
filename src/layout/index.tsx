@@ -13,10 +13,10 @@ const Layout: FC = ({children}) => {
   const showFollowers = useMediaQuery(theme.breakpoints.up('lg'));
 
   return (
-    <LayoutWrapper isPC={isPC}>
+    <LayoutWrapper>
       {isPC || <MobileHeader />}
       {isPC && <PCNav />}
-      <ContentWrapper className={isPC ? 'isPC' : ''}>{children}</ContentWrapper>
+      <ContentWrapper>{children}</ContentWrapper>
       {isPC || <MobileNav />}
       {showFollowers && <Follow />}
     </LayoutWrapper>

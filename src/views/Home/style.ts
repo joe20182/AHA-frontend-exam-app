@@ -1,45 +1,36 @@
 import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
-  h3 {
-    margin: 0 0 16px;
-  }
   .keyword-input {
     margin-bottom: 28px;
   }
-  .pagi-wrapper {
-    padding-bottom: 180px;
-  }
-  .btn-wrapper {
-    padding-top: 80px;
-  }
-  &.isPC {
+  ${({theme}) => theme.breakpoints.up('sm')} {
     padding-top: 54px;
-    h3 {
-      margin: 0 0 20px;
-    }
-    .search-wrapper {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 30px;
-    }
-    .pagi-wrapper {
-      padding-bottom: 10px;
-    }
-    .btn-wrapper {
-      padding-top: 335px;
-    }
   }
 `;
 
-export const SearchWrapper = styled.div``;
+export const SearchWrapper = styled.div`
+  ${({theme}) => theme.breakpoints.up('sm')} {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+  }
+`;
 
 export const SearchTitle = styled.h3`
   font-size: 24px;
   font-weight: 400;
+  margin: 0 0 16px;
+  ${({theme}) => theme.breakpoints.up('sm')} {
+    margin: 0 0 20px;
+  }
 `;
 
 export const PagiWrapper = styled.div`
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 180px;
+  ${({theme}) => theme.breakpoints.up('sm')} {
+    padding-bottom: 10px;
+  }
 `;
 
 export const ResultBox = styled.div`
@@ -53,4 +44,9 @@ export const ResultBox = styled.div`
   }
 `;
 
-export const BtnWrapper = styled.div``;
+export const BtnWrapper = styled.div`
+  padding-top: 80px;
+  ${({theme}) => theme.breakpoints.up('sm')} {
+    padding-top: 335px;
+  }
+`;

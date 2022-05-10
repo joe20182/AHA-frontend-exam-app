@@ -1,7 +1,5 @@
 import {FC} from 'react';
 import {RouteComponentProps} from 'react-router-dom';
-import {useTheme} from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import {
   HomeWrapper,
   SearchWrapper,
@@ -16,8 +14,6 @@ import PageSlider from '@/components/PageSlider';
 import useAxios from '@/hooks/useAxios';
 
 const Home: FC<RouteComponentProps> = () => {
-  const theme = useTheme();
-  const isPC = useMediaQuery(theme.breakpoints.up('sm'));
   const {sendRequest: getAllUsers, isLoading} = useAxios({
     url: '/users/all',
     params: {
@@ -33,14 +29,14 @@ const Home: FC<RouteComponentProps> = () => {
   };
 
   return (
-    <HomeWrapper className={isPC ? 'isPC' : ''}>
+    <HomeWrapper>
       {/* search */}
       <SearchWrapper className="search-wrapper">
         <SearchTitle>Search</SearchTitle>
         <Input placeholder="Keyword" fullWidth className="keyword-input" />
       </SearchWrapper>
       {/* pagi */}
-      <PagiWrapper className="pagi-wrapper">
+      <PagiWrapper>
         <SearchTitle># of results per page</SearchTitle>
         <ResultBox>
           <h4>30</h4>
@@ -49,11 +45,12 @@ const Home: FC<RouteComponentProps> = () => {
         <PageSlider />
       </PagiWrapper>
       {/* btn */}
-      <BtnWrapper className="btn-wrapper">
+      <BtnWrapper>
         <Button
           size="large"
           onClick={() => handleSearch()}
           disabled={isLoading}
+          fullWidth
         >
           SEARCH
         </Button>

@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
-interface LayoutProps {
-  isPC: boolean;
-}
-
-export const LayoutWrapper = styled.div<LayoutProps>`
+export const LayoutWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-direction: ${(props) => (props.isPC ? 'row' : 'column')};
+  flex-direction: 'column';
   overflow-x: hidden;
-  padding-bottom: ${(props) => (props.isPC ? '0' : '66px')};
+  padding-bottom: '66px';
+  ${({theme}) => theme.breakpoints.up('sm')} {
+    flex-direction: 'row';
+    padding-bottom: 0;
+  }
 `;
 
 export const ContentWrapper = styled.div`
   padding: 70px 20px 0;
   flex: 1;
-  &.isPC {
+  ${({theme}) => theme.breakpoints.up('sm')} {
     padding: 0 130px;
   }
 `;

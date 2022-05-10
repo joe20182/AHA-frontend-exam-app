@@ -8,8 +8,13 @@ const routesConfig: RouteConfig[] = [
     component: lazy(() => import('@/views/Home')),
   },
   {
+    path: '/result',
+    // exact: true,
+    component: lazy(() => import('@/views/Result')),
+  },
+  {
     path: '/UIDemo',
-    exact: true,
+    // exact: true,
     component: lazy(() => import('@/views/MUIDemo')),
   },
   // {

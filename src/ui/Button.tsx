@@ -10,11 +10,11 @@ const commonStyle = {
   // 'padding': '8px 10px',
 };
 
-export default styled(Button)<ButtonProps>(({variant, size}) => ({
+export default styled(Button)<ButtonProps>(({variant, size, theme}) => ({
   ...commonStyle,
   'color': variant === 'outlined' ? '#FFF' : '#121212',
   'backgroundColor': variant === 'outlined' ? '#121212' : '#FFF',
-  'width': size === 'large' ? 343 : 'auto',
+  // 'width': size === 'large' ? 343 : 'auto',
   'fontSize': size === 'large' ? 14 : 12,
   'height': size === 'large' ? 40 : 28,
   'borderRadius': size === 'large' ? 4 : 20,
@@ -22,5 +22,8 @@ export default styled(Button)<ButtonProps>(({variant, size}) => ({
     backgroundColor: variant === 'outlined' ? '#FFF' : '#121212',
     color: variant === 'outlined' ? '#121212' : '#FFF',
     border: '1px solid #FFF',
+  },
+  [theme.breakpoints.up('sm')]: {
+    maxWidth: size === 'large' ? 343 : 'auto',
   },
 }));

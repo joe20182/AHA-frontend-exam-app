@@ -1,6 +1,10 @@
 import {styled} from '@mui/material/styles';
 import Slider, {SliderProps} from '@mui/material/Slider';
 
+interface MySliderProps extends SliderProps {
+  current?: number;
+}
+
 const commonStyle = {
   // maxWidth: '100%',
   'height': 8,
@@ -25,9 +29,9 @@ const commonStyle = {
     opacity: 0.5,
     top: 38,
   },
-  '& .MuiSlider-markLabelActive': {
-    opacity: 1,
-  },
+  // '& .MuiSlider-markLabelActive': {
+  //   opacity: 1,
+  // },
   '@media (pointer: coarse)': {
     '& .MuiSlider-markLabel': {
       top: 43,
@@ -35,6 +39,9 @@ const commonStyle = {
   },
 };
 
-export default styled(Slider)<SliderProps>(() => ({
+export default styled(Slider)<MySliderProps>(({current}) => ({
   ...commonStyle,
+  [`.MuiSlider-markLabelActive[data-index='${current}']`]: {
+    opacity: 1,
+  },
 }));

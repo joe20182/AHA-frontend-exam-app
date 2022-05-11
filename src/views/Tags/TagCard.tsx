@@ -1,14 +1,19 @@
 import {FC} from 'react';
 import {TagItem, TagImgBox, TagLabel, TagName, TagDescription} from './style';
 
-const TagCard: FC = () => {
+interface TagProp {
+  name: string;
+  count: number;
+}
+
+const TagCard: FC<TagProp> = ({name, count}) => {
   return (
     <TagItem>
       <TagImgBox>
-        <TagLabel>Cool</TagLabel>
+        <TagLabel>{name}</TagLabel>
       </TagImgBox>
-      <TagName>Cool</TagName>
-      <TagDescription>350 Results</TagDescription>
+      <TagName>{name}</TagName>
+      <TagDescription>{count} Results</TagDescription>
     </TagItem>
   );
 };

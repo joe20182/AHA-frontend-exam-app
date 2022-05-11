@@ -56,10 +56,15 @@ export const TagLabel = styled.span`
   max-width: 135px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const TagName = styled.div`
   font-size: 15px;
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const TagDescription = styled.div`

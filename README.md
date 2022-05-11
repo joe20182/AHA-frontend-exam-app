@@ -6,6 +6,5 @@ stacks:
 
 - react
 - typescript
-- react-redux
 - Material UI
 - styled components

@@ -17,7 +17,7 @@ export const LayoutWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div<ContentWrapperProps>`
-  padding: 70px 20px 0;
+  padding: 70px 20px 100px;
   flex: 1;
   ${({theme}) => theme.breakpoints.up('sm')} {
     /* padding: 0 130px; */

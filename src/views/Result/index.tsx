@@ -3,8 +3,6 @@ import {RouteComponentProps, useHistory, useLocation} from 'react-router-dom';
 import queryString from 'query-string';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-// import {useAppDispatch, useAppSelector} from '@/store/hooks';
-// import {selectCount, incrementByAmount} from '@/store/slice/count';
 import {ResultWrapper, ResultsTitle, ResultList, ResultBackIcon} from './style';
 import ResultCard from './ResultCard';
 import Button from '@/ui/Button';
@@ -40,9 +38,6 @@ const About: FC<RouteComponentProps> = () => {
   const [params, setParams] = useState<SearchState>({page: 0, totalPages: 1});
   const [list, setList] = useState<ResultList>([]);
   const loader = useRef(null);
-  // const count = useAppSelector(selectCount);
-  // const dispatch = useAppDispatch();
-  // const add = () => dispatch(incrementByAmount(2));
 
   const {sendRequest: getAllUsersAPI, isLoading} = useAxios({
     url: '/users/all',

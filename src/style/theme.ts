@@ -2,15 +2,22 @@ import {createTheme} from '@mui/material/styles';
 
 // Create a theme instance.
 const theme = createTheme({
-  // components: {
-  //   MuiCssBaseline: {
-  //     styleOverrides: {
-  //       body: {
-  //         overflowX: 'hidden',
-  //       },
-  //     },
-  //   },
-  // },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        '::-webkit-scrollbar': {
+          width: '7px',
+        },
+        '::-webkit-scrollbar-track': {
+          backgroundColor: 'transparent',
+        },
+        '::-webkit-scrollbar-thumb': {
+          backgroundColor: '#464646',
+          borderRadius: '100px',
+        },
+      },
+    },
+  },
   breakpoints: {
     values: {
       xs: 0,

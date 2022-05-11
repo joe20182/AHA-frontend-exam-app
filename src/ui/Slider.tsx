@@ -23,9 +23,15 @@ const commonStyle = {
   '& .MuiSlider-markLabel': {
     color: '#FFF',
     opacity: 0.5,
+    top: 38,
   },
   '& .MuiSlider-markLabelActive': {
     opacity: 1,
+  },
+  '@media (pointer: coarse)': {
+    '& .MuiSlider-markLabel': {
+      top: 43,
+    },
   },
 };
 

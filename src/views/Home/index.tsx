@@ -7,6 +7,7 @@ import {
   PagiWrapper,
   ResultBox,
   BtnWrapper,
+  ResultNumber,
 } from './style';
 import Input from '@/ui/Input';
 import Button from '@/ui/Button';
@@ -61,9 +62,9 @@ const Home: FC<RouteComponentProps> = () => {
       </SearchWrapper>
       {/* pagi */}
       <PagiWrapper>
-        <SearchTitle># of results per page</SearchTitle>
+        <SearchTitle># Of Results Per Page</SearchTitle>
         <ResultBox>
-          <h4>{mapResultsValue(resPerPage)}</h4>
+          <ResultNumber>{mapResultsValue(resPerPage)}</ResultNumber>
           <span>results</span>
         </ResultBox>
         <PageSlider value={resPerPage} onChange={handleChangeSlider} />

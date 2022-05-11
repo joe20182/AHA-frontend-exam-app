@@ -7,11 +7,11 @@ export const PCNavWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 37px 0;
+  padding: 35px 0;
 `;
 
 export const Tabs = styled.div`
-  padding-top: 45px;
+  padding-top: 43px;
   > div {
     margin-bottom: 24px;
   }

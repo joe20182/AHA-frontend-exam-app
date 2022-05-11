@@ -12,7 +12,7 @@ export const HomeWrapper = styled.div`
 export const SearchWrapper = styled.div`
   ${({theme}) => theme.breakpoints.up('sm')} {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 30px;
+    margin-bottom: 32px;
   }
 `;
 
@@ -27,20 +27,23 @@ export const SearchTitle = styled.h3`
 
 export const PagiWrapper = styled.div`
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 180px;
+  padding-bottom: 209px;
   ${({theme}) => theme.breakpoints.up('sm')} {
-    padding-bottom: 10px;
+    padding-bottom: 28px;
   }
 `;
 
 export const ResultBox = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   display: flex;
   align-items: baseline;
   h4 {
     font-size: 48px;
     font-weight: 700;
     margin: 0 10px 0 0;
+  }
+  ${({theme}) => theme.breakpoints.up('sm')} {
+    margin-bottom: 14px;
   }
 `;
 
@@ -49,4 +52,8 @@ export const BtnWrapper = styled.div`
   ${({theme}) => theme.breakpoints.up('sm')} {
     padding-top: 335px;
   }
+`;
+
+export const ResultNumber = styled.h4`
+  line-height: 1;
 `;

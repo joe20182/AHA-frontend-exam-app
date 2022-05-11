@@ -18,7 +18,7 @@ export const FollowTabs = styled.div`
 
 export const FollowTab = styled.div`
   flex: 1;
-  padding: 32px 0 12px;
+  padding: 32px 0 8px;
   cursor: pointer;
   text-align: center;
   color: #929292;

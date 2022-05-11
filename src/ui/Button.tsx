@@ -12,6 +12,7 @@ const commonStyle = {
 
 export default styled(Button)<ButtonProps>(({variant, size, theme}) => ({
   ...commonStyle,
+  'textTransform': 'none',
   'color': variant === 'outlined' ? '#FFF' : '#121212',
   'backgroundColor': variant === 'outlined' ? '#121212' : '#FFF',
   // 'width': size === 'large' ? 343 : 'auto',

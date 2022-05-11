@@ -5,6 +5,9 @@ import {useSnackbar} from 'notistack';
 interface RequestConfig {
   url: string;
   method?: string;
+}
+
+interface RequestBody {
   data?: any;
   params?: any;
 }
@@ -16,15 +19,15 @@ const useAxios = (requestConfig: RequestConfig) => {
   const [error, setError] = useState<null | string>(null);
   const {enqueueSnackbar} = useSnackbar();
 
-  const sendRequest = async () => {
+  const sendRequest = async (body: RequestBody) => {
     setIsLoading(true);
     try {
       const res = await axios({
         url: requestConfig.url,
         method: requestConfig.method || 'GET',
         headers: {},
-        data: requestConfig.data || null,
-        params: requestConfig.params || null,
+        data: body.data || null,
+        params: body.params || null,
       });
       if (res.data) {
         setError(null);

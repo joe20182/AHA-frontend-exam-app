@@ -6,6 +6,10 @@ export const FollowWrapper = styled.div`
   position: fixed;
   top: 0;
   right: 0;
+  .follow-spinner {
+    position: absolute;
+    z-index: 9;
+  }
 `;
 
 export const FollowTabs = styled.div`
@@ -59,3 +63,10 @@ export const Account = styled.div`
 export const Detail = styled.div``;
 
 export const Name = styled.div``;
+
+export const LoadMore = styled.div`
+  font-size: 12px;
+  opacity: 0.5;
+  text-align: center;
+  cursor: pointer;
+`;

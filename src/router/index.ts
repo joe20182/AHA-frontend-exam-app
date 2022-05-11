@@ -19,20 +19,6 @@ const routesConfig: RouteConfig[] = [
     path: '/UIDemo',
     component: lazy(() => import('@/views/MUIDemo')),
   },
-  // {
-  //   path: '/about',
-  //   component: lazy(() => import('@/views/About')),
-  //   routes: [
-  //     {
-  //       path: '/about/A',
-  //       component: lazy(() => import('@/views/About/A')),
-  //     },
-  //   ],
-  // },
-  // {
-  //   path: "*",
-  //   component: lazy(() => import("@/views/Home")),
-  // },
 ];
 
 export default routesConfig;

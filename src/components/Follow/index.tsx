@@ -22,6 +22,8 @@ interface UserPagi {
 
 const Follow: FC = () => {
   const [tab, setTab] = useState(1);
+
+  // hooks of all users
   const [userList, setUserList] = useState<UserList>([]);
   const [userPagi, setUserPagi] = useState<UserPagi>({
     current: 0,
@@ -30,15 +32,30 @@ const Follow: FC = () => {
   const {sendRequest: getAllUsers, isLoading: isLoadingAllUsers} = useAxios({
     url: '/users/all',
   });
-  // const {sendRequest: getAllFriends} = useAxios({
-  //   url: '/users/friends',
-  // });
+
+  // hooks of all friends
+  const [friendList, setFriendList] = useState<UserList>([]);
+  const [friendPagi, setFriendPagi] = useState<UserPagi>({
+    current: 0,
+    totalPages: 1,
+  });
+  const {sendRequest: getAllFriends, isLoading: isLoadingAllFriends} = useAxios(
+    {
+      url: '/users/friends',
+    },
+  );
 
   useEffect(() => {
-    // console.log('AAA', userPagi);
     if (!userPagi.current || userPagi.current > userPagi.totalPages) return;
     handleGetAllUsers();
   }, [userPagi.current]);
+
+  useEffect(() => {
+    if (!friendPagi.current || friendPagi.current > friendPagi.totalPages) {
+      return;
+    }
+    handleGetAllFriends();
+  }, [friendPagi.current]);
 
   const handleGetAllUsers = async () => {
     const res = await getAllUsers({
@@ -50,6 +67,24 @@ const Follow: FC = () => {
     if (res) {
       setUserList([...userList, ...res.data]);
       setUserPagi((pre) => {
+        return {
+          ...pre,
+          totalPages: res.totalPages,
+        };
+      });
+    }
+  };
+
+  const handleGetAllFriends = async () => {
+    const res = await getAllFriends({
+      params: {
+        page: friendPagi.current,
+        pageSize: 20,
+      },
+    });
+    if (res) {
+      setFriendList([...friendList, ...res.data]);
+      setFriendPagi((pre) => {
         return {
           ...pre,
           totalPages: res.totalPages,
@@ -72,9 +107,22 @@ const Follow: FC = () => {
     });
   };
 
+  const handleScrollAllFriends = () => {
+    if (friendPagi.current > friendPagi.totalPages) return;
+    setFriendPagi((preState) => {
+      return {
+        ...preState,
+        current: preState.current + 1,
+      };
+    });
+  };
+
   return (
     <FollowWrapper>
-      <Backdrop className="follow-spinner" open={isLoadingAllUsers}>
+      <Backdrop
+        className="follow-spinner"
+        open={isLoadingAllUsers || isLoadingAllFriends}
+      >
         <CircularProgress color="inherit" />
       </Backdrop>
       {/* tabs */}
@@ -94,11 +142,20 @@ const Follow: FC = () => {
       </FollowTabs>
       {/* list */}
       <ListWrapper>
-        <Followers
-          list={userList}
-          onScrollEnd={handleScrollAllUsers}
-          hasMore={userPagi.current <= userPagi.totalPages}
-        />
+        {tab === 1 && (
+          <Followers
+            list={userList}
+            onScrollEnd={handleScrollAllUsers}
+            hasMore={userPagi.current <= userPagi.totalPages}
+          />
+        )}
+        {tab === 2 && (
+          <Followers
+            list={friendList}
+            onScrollEnd={handleScrollAllFriends}
+            hasMore={friendPagi.current <= friendPagi.totalPages}
+          />
+        )}
       </ListWrapper>
     </FollowWrapper>
   );

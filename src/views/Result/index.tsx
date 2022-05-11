@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from 'react';
+import {FC, useEffect, useState, useCallback, useRef} from 'react';
 import {RouteComponentProps, useHistory, useLocation} from 'react-router-dom';
 import queryString from 'query-string';
 import Backdrop from '@mui/material/Backdrop';
@@ -39,6 +39,7 @@ const About: FC<RouteComponentProps> = () => {
   const location = useLocation();
   const [params, setParams] = useState<SearchState>({page: 0, totalPages: 1});
   const [list, setList] = useState<ResultList>([]);
+  const loader = useRef(null);
   // const count = useAppSelector(selectCount);
   // const dispatch = useAppDispatch();
   // const add = () => dispatch(incrementByAmount(2));
@@ -53,7 +54,7 @@ const About: FC<RouteComponentProps> = () => {
     setParams((preState) => {
       return {
         ...preState,
-        page: 1,
+        // page: 1,
         pageSize: Number(obj.pageSize) || 9,
         keyword: obj.keyword || '',
       };
@@ -95,6 +96,28 @@ const About: FC<RouteComponentProps> = () => {
     });
   };
 
+  const handleObserver = useCallback((entries) => {
+    const target = entries[0];
+    if (target.isIntersecting) {
+      setParams((preState) => {
+        return {
+          ...preState,
+          page: preState.page + 1,
+        };
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    const option = {
+      root: null,
+      rootMargin: '20px',
+      threshold: 0,
+    };
+    const observer = new IntersectionObserver(handleObserver, option);
+    if (loader.current) observer.observe(loader.current);
+  }, [handleObserver]);
+
   return (
     <ResultWrapper>
       <Backdrop open={isLoading} sx={{zIndex: 1}}>
@@ -109,9 +132,11 @@ const About: FC<RouteComponentProps> = () => {
           <ResultCard key={item.id} title={item.name} author={item.username} />
         ))}
       </ResultList>
-      <Button size="large" fullWidth onClick={handleClickMore}>
-        MORE
-      </Button>
+      {params.page <= params.totalPages && (
+        <Button size="large" fullWidth onClick={handleClickMore} ref={loader}>
+          MORE
+        </Button>
+      )}
     </ResultWrapper>
   );
 };

@@ -28,10 +28,10 @@ export const TagList = styled.div`
 
 export const TagItem = styled.div`
   border-radius: 10px;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
   /* margin-right: 24px; */
   ${({theme}) => theme.breakpoints.up('sm')} {
-    margin-bottom: 36px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -52,7 +52,7 @@ export const TagLabel = styled.span`
   position: absolute;
   left: 10px;
   bottom: 14px;
-  padding: 7px 14px;
+  padding: 3px 14px;
   max-width: 135px;
   overflow: hidden;
   text-overflow: ellipsis;

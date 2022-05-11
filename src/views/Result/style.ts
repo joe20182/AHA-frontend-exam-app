@@ -20,7 +20,7 @@ export const ResultsTitle = styled.h3`
 
 export const ResultBackIcon = styled.img`
   margin-right: 30px;
-  margin-left: -30px;
+  margin-left: -36px;
   cursor: pointer;
   display: none;
   ${({theme}) => theme.breakpoints.up('sm')} {

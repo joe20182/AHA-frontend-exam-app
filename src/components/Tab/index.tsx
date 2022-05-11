@@ -7,6 +7,7 @@ interface TabProps {
   active?: boolean;
   name: string;
   onClick?: (e: MouseEvent<HTMLDivElement>) => void;
+  notice?: boolean;
 }
 
 const Tab: FC<TabProps> = ({active, name, ...props}) => {

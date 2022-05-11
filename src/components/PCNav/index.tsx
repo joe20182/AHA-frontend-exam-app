@@ -25,6 +25,7 @@ const MobileHeader: FC = () => {
           active={location.pathname === '/tags'}
           name="Tags"
           onClick={() => handleDirect('/tags')}
+          notice={location.pathname === '/' || location.pathname === '/result'}
         />
       </Tabs>
     </PCNavWrapper>

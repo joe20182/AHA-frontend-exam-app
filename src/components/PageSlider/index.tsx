@@ -42,6 +42,7 @@ const calculateValue = (value: number) => {
 
 const PageSlider: FC<SliderProps> = (props) => {
   // console.log(props);
+  const value = props.value as number;
   return (
     <Slider
       marks={marks}
@@ -49,6 +50,7 @@ const PageSlider: FC<SliderProps> = (props) => {
       max={6}
       step={null}
       scale={calculateValue}
+      current={value - 1}
       {...props}
     />
   );

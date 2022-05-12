@@ -6,7 +6,10 @@ import Box from '@mui/material/Box';
 import Button from '@/ui/Button';
 import Input from '@/ui/Input';
 import PageSlider from '@/components/PageSlider';
-
+/**
+ * 客製化的MUI組件playground
+ * @return {React.FunctionComponent} MUIDemo
+ */
 const MUIDemo: FC<RouteComponentProps> = () => {
   return (
     <Container maxWidth="md">

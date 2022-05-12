@@ -5,7 +5,7 @@ import Layout from '@/layout';
 
 /**
  * App component
- * @return {React.ReactElement} The app
+ * @return {React.FunctionComponent} The app
  */
 function App() {
   return (

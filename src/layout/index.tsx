@@ -8,6 +8,7 @@ import PCNav from '@/components/PCNav';
 import Follow from '@/components/Follow';
 import {LayoutWrapper, ContentWrapper} from './style';
 
+// 最外層layout組件，控制整體排版
 const Layout: FC = ({children}) => {
   const location = useLocation();
   const theme = useTheme();

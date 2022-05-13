@@ -31,15 +31,18 @@ export const ResultBackIcon = styled.img`
 export const ResultList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 33.5px;
+  padding-bottom: 39px;
 `;
 
 export const ResultItem = styled.div`
   flex: 0 0 100%;
-  margin-bottom: 40px;
+  margin-bottom: 9px;
+  word-break: break-all;
   ${({theme}) => theme.breakpoints.up('sm')} {
-    margin-bottom: 30px;
-    flex: 0 0 calc(33.333333% - 22.6px);
+    margin-bottom: 0px;
+    flex: 0 0 calc(33.333333% - 22.5px);
   }
 `;
 
@@ -55,9 +58,11 @@ export const ResultImg = styled.div`
 
 export const ResultTitle = styled.div`
   font-size: 15px;
+  margin-bottom: 2px;
 `;
 
 export const ResultSubtitle = styled.div`
   font-size: 12px;
   color: #b2b2b2;
+  line-height: 1;
 `;

@@ -20,6 +20,7 @@ interface UserPagi {
   totalPages: number;
 }
 
+// 可優化地方: 改為redux
 const Follow: FC = () => {
   const [tab, setTab] = useState(1);
 
@@ -45,11 +46,13 @@ const Follow: FC = () => {
     },
   );
 
+  // 翻到下一頁觸發fetch api - Followers
   useEffect(() => {
     if (!userPagi.current || userPagi.current > userPagi.totalPages) return;
     handleGetAllUsers();
   }, [userPagi.current]);
 
+  // 翻到下一頁觸發fetch api - Following
   useEffect(() => {
     if (!friendPagi.current || friendPagi.current > friendPagi.totalPages) {
       return;
@@ -97,6 +100,7 @@ const Follow: FC = () => {
     setTab(index);
   };
 
+  // 初始化會觸發一次把current page從0變1，觸發useEffect fecth
   const handleScrollAllUsers = () => {
     if (userPagi.current > userPagi.totalPages) return;
     setUserPagi((preState) => {
@@ -107,6 +111,7 @@ const Follow: FC = () => {
     });
   };
 
+  // 初始化會觸發一次把current page從0變1，觸發useEffect fecth
   const handleScrollAllFriends = () => {
     if (friendPagi.current > friendPagi.totalPages) return;
     setFriendPagi((preState) => {

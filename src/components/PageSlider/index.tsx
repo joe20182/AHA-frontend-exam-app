@@ -2,6 +2,11 @@ import {FC} from 'react';
 import {SliderProps} from '@mui/material/Slider';
 import Slider from '@/ui/Slider';
 
+/**
+ * value指定1~6已達成刻度等距
+ * 真正對應的value在Home組件中mapping
+ * 這邊可以把mapping表拆出成constant file
+ */
 const marks = [
   {
     value: 1,
@@ -35,10 +40,14 @@ const marks = [
   },
 ];
 
-const calculateValue = (value: number) => {
-  const current = marks[value - 1];
-  return current.scaledValue;
-};
+/**
+ * @param {number} value
+ * @return {number} real value of the page slider
+ */
+// const calculateValue = (value: number) => {
+//   const current = marks[value - 1];
+//   return current.scaledValue;
+// };
 
 const PageSlider: FC<SliderProps> = (props) => {
   // console.log(props);
@@ -49,7 +58,6 @@ const PageSlider: FC<SliderProps> = (props) => {
       min={1}
       max={6}
       step={null}
-      scale={calculateValue}
       current={value - 1}
       {...props}
     />

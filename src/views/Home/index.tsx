@@ -31,6 +31,7 @@ const Home: FC<RouteComponentProps> = () => {
     setResPerPage(v);
   };
 
+  // map出page slider真正的value
   const mapResultsValue = (index: number) => {
     const map = [
       {index: 1, value: 3},
